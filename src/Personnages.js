@@ -24,4 +24,12 @@ export default class Personnage extends Component {
   componentWillMount () {
     this._fetchPersonnage()
   }
+
+  render () {
+    return (
+      <div>
+        <h2> Personnage </h2>
+      </div>
+    )
+  }
 }

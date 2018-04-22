@@ -1,4 +1,4 @@
-import { Component } from 'react'
+import React, { Component } from 'react'
 const URL_PEOPLE = 'https://swapi.co/api/people/'
 
 export default class Personnage extends Component {
@@ -17,7 +17,15 @@ export default class Personnage extends Component {
         return response.json()
       })
       .then((myJson) => {
-        console.log(myJson)
+        // set the state isLoading to false
+        this.setState({
+          isLoading: false
+        })
+
+        // get the object myJson to the state personnage
+        this.setState({
+          personnage: myJson
+        })
       })
   }
 

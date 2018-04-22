@@ -37,10 +37,20 @@ export default class planet extends Component {
                 </div>
             )
         } else {
-            console.log(this.state.planet)
             return (
                 <div>
-                    <p> OK </p>
+                    <h2> {this.state.planet.name}</h2>
+                      <ul>
+                         <li> Climate : {this.state.planet.climate}</li>
+                         <li> Terrain : {this.state.planet.terrain}</li>
+                         <li> Percent water surface : {this.state.planet.surface_water} </li>
+                         <li> Diametre : {this.state.planet.diameter} m </li>
+                         <li> Gravity : {this.state.planet.gravity}</li>
+                         <li> Rotation period : {this.state.planet.rotation_period} hours </li>
+                         <li> Orbital period : {this.state.planet.orbital_period} days </li>
+                         <li> Population : {this.state.planet.population}</li>
+                        
+                      </ul>
                 </div>
             )
         }

@@ -19,8 +19,9 @@ export default class planet extends Component {
                 this.setState({
                     isLoading: false
                 })
-                console.log(myJSON)
-                console.log(this.state.isLoading)
+                this.setState({
+                    planet: myJSON
+                })
             })
     }
 
@@ -36,6 +37,7 @@ export default class planet extends Component {
                 </div>
             )
         } else {
+            console.log(this.state.planet)
             return (
                 <div>
                     <p> OK </p>

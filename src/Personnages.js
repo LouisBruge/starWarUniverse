@@ -20,4 +20,8 @@ export default class Personnage extends Component {
         console.log(myJson)
       })
   }
+
+  componentWillMount () {
+    this._fetchPersonnage()
+  }
 }

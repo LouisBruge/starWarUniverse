@@ -12,22 +12,38 @@ export default class Starship extends React.Component {
   }
 
   _fetchStarship () {
-    fetch(URL_STARSHIP + '4')
+    fetch(URL_STARSHIP + '3')
       .then(function (response) {
         return response.json()
       })
       .then((myJSON) => {
         this.setState({
-          startship: myJSON
+          starship: myJSON,
+          isLoading: false
         })
         console.log(this.state.startship)
       })
   }
 
+  componentWillMount () {
+    this._fetchStarship()
+  }
+
   render () {
-    return (
-      <div>
-        <h2> Starship </h2>
-      </div>)
+    if (this.state.isLoading) {
+      return (
+        <div>
+          <p> Loading... </p>
+        </div>
+      )
+    } else {
+      console.log(this.state.starship.name)
+      return (
+        <div>
+          <h2> {this.state.starship.name} </h2>
+          <p> Class : {this.state.starship.starship_class} </p>
+          <p> Manufacturer : {this.state.starship.manufacturer} </p>
+        </div>)
+    }
   }
 }

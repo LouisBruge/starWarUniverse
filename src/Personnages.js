@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import PersonnagesForm from './PersonnagesForm'
+
 const URL_PEOPLE = 'https://swapi.co/api/people/'
 
 export default class Personnage extends Component {
@@ -29,10 +31,7 @@ export default class Personnage extends Component {
       })
   }
 
-  componentWillMount () {
-    this._fetchPersonnage()
-  }
-
+  componentWillMount () { this._fetchPersonnage() }
   render () {
     if (this.state.isLoading) {
       return (
@@ -43,6 +42,7 @@ export default class Personnage extends Component {
     } else {
       return (
         <div>
+          <PersonnagesForm />
           <h2> {this.state.personnage.name} </h2>
           <p> born in : {this.state.personnage.birth_year} </p>
           <p> Sex : {this.state.personnage.gender} </p>

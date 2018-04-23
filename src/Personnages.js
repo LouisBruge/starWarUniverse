@@ -34,10 +34,23 @@ export default class Personnage extends Component {
   }
 
   render () {
-    return (
-      <div>
-        <h2> Personnage </h2>
-      </div>
-    )
+    if (this.state.isLoading) {
+      return (
+        <div>
+          <p> Loading...</p>
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <h2> {this.state.personnage.name} </h2>
+          <p> born in : {this.state.personnage.birth_year} </p>
+          <p> Sex : {this.state.personnage.gender} </p>
+          <p> Specie : {this.state.personnage.species}</p>
+          <p> Height : {this.state.personnage.height} cm </p>
+          <p> Weight : {this.state.personnage.mass} kg </p>
+        </div>
+      )
+    }
   }
 }

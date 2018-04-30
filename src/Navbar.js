@@ -1,17 +1,28 @@
 import React from 'react'
+import { Navbar, Nav, NavItem } from 'react-bootstrap'
 
-export default class Navbar extends React.Component {
-    render ()  {
-        return (
-            <navbar>
-                <a href="/"> Star War Univers API </a>
+export default class NavBar extends React.Component {
+  render () {
+    return (
+      <Navbar>
+        <Navbar.Header>
+          <Navbar.Brand>
+            <a href='/'>StarWar Univer</a>
+          </Navbar.Brand>
+        </Navbar.Header>
 
-                <ul>
-                    <li><a href="#">Personnages </a></li>
-                    <li><a href="#">Planets </a></li>
-                    <li><a href="#">Films </a></li>
-                </ul>
-            </navbar>
-        )
-    }
+        <Nav>
+          <NavItem href='/Personnages'>
+        Personnages
+          </NavItem>
+          <NavItem href='Vehicules'>
+        Vehicules
+          </NavItem>
+          <NavItem href='/Planets'>
+        Planets
+          </NavItem>
+        </Nav>
+      </Navbar>
+    )
+  }
 }

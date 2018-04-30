@@ -2,8 +2,8 @@ import React from 'react'
 const URL_STARSHIP = 'https://swapi.co/api/starships/'
 
 export default class Starship extends React.Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
 
     this.state = {
       isLoading: true,

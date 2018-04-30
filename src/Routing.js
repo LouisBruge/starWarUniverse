@@ -9,9 +9,9 @@ export default class Routing extends React.Component {
     return (
       <BrowserRouter>
         <Switch>
-          <Route path='/planets' component={Planet} />
-          <Route path='/personnages' Component={Personnage} />
-          <Route path='/starships' Component={Starship} />
+          <Route exact path='/Starship' component={Starship} />
+          <Route exact path='/Planets' component={Planet} />
+          <Route exact path='/Personnage' component={Personnage} />
         </Switch>
       </BrowserRouter>
     )

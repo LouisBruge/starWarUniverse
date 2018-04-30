@@ -12,7 +12,7 @@ export default class NavBar extends React.Component {
         </Navbar.Header>
 
         <Nav>
-          <NavItem href='/personnages'>
+          <NavItem href='/Personnage'>
         Personnages
           </NavItem>
           <NavItem href='Vehicules'>
@@ -21,7 +21,7 @@ export default class NavBar extends React.Component {
           <NavItem href='/Planets'>
         Planets
           </NavItem>
-          <NavItem href='/starships'>
+          <NavItem href='/Starship'>
       Starships
           </NavItem>
         </Nav>

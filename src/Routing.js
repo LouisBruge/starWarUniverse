@@ -2,6 +2,7 @@ import React from 'react'
 import Planet from './planet.js'
 import Starship from './Starship.js'
 import Personnage from './Personnages.js'
+import Vehicle from './Vehicles.js'
 import {Route, BrowserRouter, Switch} from 'react-router-dom'
 
 export default class Routing extends React.Component {
@@ -12,6 +13,7 @@ export default class Routing extends React.Component {
           <Route exact path='/Starship' component={Starship} />
           <Route exact path='/Planets' component={Planet} />
           <Route exact path='/Personnage' component={Personnage} />
+          <Route exact path='/Vehicle' component={Vehicle} />
         </Switch>
       </BrowserRouter>
     )

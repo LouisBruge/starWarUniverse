@@ -15,7 +15,7 @@ export default class NavBar extends React.Component {
           <NavItem href='/Personnage'>
         Personnages
           </NavItem>
-          <NavItem href='Vehicules'>
+          <NavItem href='/Vehicles'>
         Vehicules
           </NavItem>
           <NavItem href='/Planets'>

@@ -1,8 +1,8 @@
-import {Component} from 'react'
+import React from 'react'
 
 const URL_VEHICLE = 'https://swapi.co/api/vehicles/'
 
-export default class Vehicle extends Component {
+export default class Vehicle extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -16,7 +16,7 @@ export default class Vehicle extends Component {
       .then(function (response) {
         return response.json()
       })
-      .then(function (myJSon) {
+      .then((myJSon) => {
         this.setState({
           vehicle: myJSon,
           isLoading: false

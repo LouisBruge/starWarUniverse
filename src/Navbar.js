@@ -12,7 +12,7 @@ export default class NavBar extends React.Component {
         </Navbar.Header>
 
         <Nav>
-          <NavItem href='/Personnages'>
+          <NavItem href='/personnages'>
         Personnages
           </NavItem>
           <NavItem href='Vehicules'>

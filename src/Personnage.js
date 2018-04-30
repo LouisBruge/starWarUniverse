@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Grid, Row, Col } from 'react-bootstrap'
 
 const URL_PEOPLE = 'https://swapi.co/api/people/'
 
@@ -44,14 +45,20 @@ export default class Personnage extends Component {
       )
     } else {
       return (
-        <div>
-          <h2> {this.state.personnage.name} </h2>
-          <p> born in : {this.state.personnage.birth_year} </p>
-          <p> Sex : {this.state.personnage.gender} </p>
-          <p> Specie : {this.state.personnage.species}</p>
-          <p> Height : {this.state.personnage.height} cm </p>
-          <p> Weight : {this.state.personnage.mass} kg </p>
-        </div>
+        <Grid fluid>
+          <Row className='Personnage'>
+            <Col xs={12}>
+              <h2 className='text-center'> {this.state.personnage.name} </h2>
+            </Col>
+            <Col xs={12}>
+              <p> born in : {this.state.personnage.birth_year} </p>
+              <p> Sex : {this.state.personnage.gender} </p>
+              <p> Specie : {this.state.personnage.species}</p>
+              <p> Height : {this.state.personnage.height} cm </p>
+              <p> Weight : {this.state.personnage.mass} kg </p>
+            </Col>
+          </Row>
+        </Grid>
       )
     }
   }

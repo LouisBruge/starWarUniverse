@@ -1,6 +1,6 @@
 import React from 'react'
 
-const URL_SPECIES = 'https://swapi.co/api/species'
+const URL_SPECIES = 'https://swapi.co/api/species/'
 
 export default class Species extends React.Component {
   constructor (props) {
@@ -16,7 +16,7 @@ export default class Species extends React.Component {
       .then(function (response) {
         return response.json()
       })
-      .then(myJSON => {
+      .then((myJSON) => {
         this.setState({
           isLoading: false,
           species: myJSON

@@ -11,11 +11,11 @@ export default class Routing extends React.Component {
     return (
       <BrowserRouter>
         <Switch>
-          <Route exact path='/starship' component={Starship} />
-          <Route exact path='/planet' component={Planet} />
+          <Route exact path='/starship/:id(\d+)' component={Starship} />
+          <Route exact path='/planet/:id(\d+)' component={Planet} />
           <Route exact path='/personnage/:id(\d+)' component={Personnage} />
-          <Route exact path='/vehicle' component={Vehicle} />
-          <Route exact path='/species' component={Species} />
+          <Route exact path='/vehicle/:id(\d+)' component={Vehicle} />
+          <Route exact path='/species/:id(\d+)' component={Species} />
         </Switch>
       </BrowserRouter>
     )

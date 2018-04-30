@@ -11,8 +11,8 @@ export default class Vehicle extends React.Component {
     }
   }
 
-  _fetchVehicle () {
-    fetch(URL_VEHICLE + '4')
+  _fetchVehicle (id) {
+    fetch(URL_VEHICLE + id)
       .then(function (response) {
         return response.json()
       })
@@ -25,7 +25,7 @@ export default class Vehicle extends React.Component {
   }
 
   componentWillMount () {
-    this._fetchVehicle()
+    this._fetchVehicle(this.props.match.params.id)
   }
 
   render () {

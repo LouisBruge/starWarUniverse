@@ -11,8 +11,8 @@ export default class Species extends React.Component {
     }
   }
 
-  _fetchSpecies () {
-    fetch(URL_SPECIES + '3')
+  _fetchSpecies (id) {
+    fetch(URL_SPECIES + id)
       .then(function (response) {
         return response.json()
       })
@@ -25,7 +25,7 @@ export default class Species extends React.Component {
   }
 
   componentWillMount () {
-    this._fetchSpecies()
+    this._fetchSpecies(this.props.match.params.id)
   }
 
   render () {

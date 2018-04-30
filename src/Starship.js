@@ -11,8 +11,8 @@ export default class Starship extends React.Component {
     }
   }
 
-  _fetchStarship () {
-    fetch(URL_STARSHIP + '3')
+  _fetchStarship (id) {
+    fetch(URL_STARSHIP + id)
       .then(function (response) {
         return response.json()
       })
@@ -26,7 +26,7 @@ export default class Starship extends React.Component {
   }
 
   componentWillMount () {
-    this._fetchStarship()
+    this._fetchStarship(this.props.match.params.id)
   }
 
   render () {

@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+const URL_PLANET = 'https://swapi.co/api/planets/'
+
 export default class planet extends Component {
   constructor () {
     super()
@@ -10,8 +12,8 @@ export default class planet extends Component {
     }
   }
 
-  _fetchPlanet () {
-    fetch('https://swapi.co/api/planets/2/')
+  _fetchPlanet (id) {
+    fetch(URL_PLANET + id)
       .then(function (response) {
         return response.json()
       })
@@ -26,7 +28,7 @@ export default class planet extends Component {
   }
 
   componentWillMount () {
-    this._fetchPlanet()
+    this._fetchPlanet(this.props.match.params.id)
   }
 
   render () {

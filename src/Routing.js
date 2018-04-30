@@ -13,7 +13,7 @@ export default class Routing extends React.Component {
         <Switch>
           <Route exact path='/starship' component={Starship} />
           <Route exact path='/planet' component={Planet} />
-          <Route exact path='/personnage' component={Personnage} />
+          <Route exact path='/personnage/:id(\d+)' component={Personnage} />
           <Route exact path='/vehicle' component={Vehicle} />
           <Route exact path='/species' component={Species} />
         </Switch>

@@ -1,12 +1,27 @@
 import {Component} from 'react'
 
-export default class Vehicule extends Component {
+const URL_VEHICLE = 'https://swapi.co/api/vehicles/'
+
+export default class Vehicle extends Component {
   constructor (props) {
     super(props)
     this.state = {
       isLoading: true,
-      vehicule: {}
+      vehicle: {}
     }
+  }
+
+  _fetchVehicle () {
+    fetch(URL_VEHICLE + '4')
+      .then(function (response) {
+        return response.json()
+      })
+      .then(function (myJSon) {
+        this.setState({
+          vehicle: myJSon,
+          isLoading: false
+        })
+      })
   }
 
   render () {

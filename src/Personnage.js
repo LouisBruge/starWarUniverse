@@ -6,9 +6,13 @@ export default class Personnage extends Component {
   constructor (props) {
     super(props)
 
+    let idPerso = () => { return this.props.name !== undefined ? this.props.name : this.props.match.params.id }
+    console.log(idPerso)
+
     this.state = {
       isLoading: true,
-      personnage: {}
+      personnage: {},
+      id: idPerso()
     }
   }
 
@@ -30,7 +34,7 @@ export default class Personnage extends Component {
       })
   }
 
-  componentWillMount () { this._fetchPersonnage(this.props.match.params.id) }
+  componentWillMount () { this._fetchPersonnage(this.state.id) }
   render () {
     if (this.state.isLoading) {
       return (

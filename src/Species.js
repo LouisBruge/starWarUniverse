@@ -23,4 +23,28 @@ export default class Species extends React.Component {
         })
       })
   }
+
+  componentWillMount () {
+    this._fetchSpecies()
+  }
+
+  render () {
+    if (this.state.isLoading) {
+      return (
+        <div>
+          <p> Loading... </p>
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <h2> {this.state.species.name} </h2>
+          <ul>
+            <li> Language : {this.state.species.language} </li>
+            <li> Classification : {this.state.species.classification} </li>
+          </ul>
+        </div>
+      )
+    }
+  }
 }

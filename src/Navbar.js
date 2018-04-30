@@ -21,6 +21,9 @@ export default class NavBar extends React.Component {
           <NavItem href='/Planets'>
         Planets
           </NavItem>
+          <NavItem href='/starships'>
+      Starships
+          </NavItem>
         </Nav>
       </Navbar>
     )

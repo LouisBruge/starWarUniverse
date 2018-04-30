@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import PersonnagesForm from './PersonnagesForm'
+import PersonnagesForm from './PersonnageForm'
 
 const URL_PEOPLE = 'https://swapi.co/api/people/'
 

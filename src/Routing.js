@@ -1,8 +1,8 @@
 import React from 'react'
-import Planet from './planet.js'
+import Planet from './Planet.js'
 import Starship from './Starship.js'
-import Personnage from './Personnages.js'
-import Vehicle from './Vehicles.js'
+import Personnage from './Personnage.js'
+import Vehicle from './Vehicle.js'
 import {Route, BrowserRouter, Switch} from 'react-router-dom'
 
 export default class Routing extends React.Component {

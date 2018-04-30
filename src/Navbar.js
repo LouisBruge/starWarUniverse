@@ -7,7 +7,7 @@ export default class NavBar extends React.Component {
       <Navbar>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href='/'>StarWar Univer</a>
+            <a href='/'>Star War Universe</a>
           </Navbar.Brand>
         </Navbar.Header>
 

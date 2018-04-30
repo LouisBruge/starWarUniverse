@@ -24,11 +24,26 @@ export default class Vehicle extends Component {
       })
   }
 
+  componentWillMount () {
+    this._fetchVehicle()
+  }
+
   render () {
-    return (
-      <div>
-        <h2> Vehicules </h2>
-      </div>
-    )
+    if (this.state.isLoading) {
+      return (
+        <div>
+          <p> Loading... </p>
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <h2> {this.state.vehicle.name} </h2>
+          <ul>
+            <li> Model : {this.state.vehicle.model} </li>
+          </ul>
+        </div>
+      )
+    }
   }
 }

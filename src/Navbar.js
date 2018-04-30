@@ -12,17 +12,17 @@ export default class NavBar extends React.Component {
         </Navbar.Header>
 
         <Nav>
-          <NavItem href='/Personnage'>
-        Personnages
+          <NavItem href='/personnage'>
+        Personnage
           </NavItem>
-          <NavItem href='/Vehicles'>
-        Vehicules
+          <NavItem href='/vehicle'>
+        Vehicle
           </NavItem>
-          <NavItem href='/Planets'>
-        Planets
+          <NavItem href='/planet'>
+        Planet
           </NavItem>
-          <NavItem href='/Starship'>
-      Starships
+          <NavItem href='/starship'>
+      Starship
           </NavItem>
         </Nav>
       </Navbar>

@@ -10,10 +10,10 @@ export default class Routing extends React.Component {
     return (
       <BrowserRouter>
         <Switch>
-          <Route exact path='/Starship' component={Starship} />
-          <Route exact path='/Planets' component={Planet} />
-          <Route exact path='/Personnage' component={Personnage} />
-          <Route exact path='/Vehicle' component={Vehicle} />
+          <Route exact path='/starship' component={Starship} />
+          <Route exact path='/planet' component={Planet} />
+          <Route exact path='/personnage' component={Personnage} />
+          <Route exact path='/vehicle' component={Vehicle} />
         </Switch>
       </BrowserRouter>
     )

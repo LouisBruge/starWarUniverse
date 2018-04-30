@@ -3,6 +3,7 @@ import Planet from './Planet.js'
 import Starship from './Starship.js'
 import Personnage from './Personnage.js'
 import Vehicle from './Vehicle.js'
+import Species from './Species.js'
 import {Route, BrowserRouter, Switch} from 'react-router-dom'
 
 export default class Routing extends React.Component {
@@ -14,6 +15,7 @@ export default class Routing extends React.Component {
           <Route exact path='/planet' component={Planet} />
           <Route exact path='/personnage' component={Personnage} />
           <Route exact path='/vehicle' component={Vehicle} />
+          <Route exact path='/species' component={Species} />
         </Switch>
       </BrowserRouter>
     )

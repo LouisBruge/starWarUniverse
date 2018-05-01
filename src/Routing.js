@@ -5,6 +5,7 @@ import Personnage from './Personnage.js'
 import PersonnageIndex from './PersonnageIndex.js'
 import Vehicle from './Vehicle.js'
 import Species from './Species.js'
+import Navbar from './Navbar.js'
 import {Route, BrowserRouter, Switch} from 'react-router-dom'
 
 export default class Routing extends React.Component {
@@ -12,6 +13,7 @@ export default class Routing extends React.Component {
     return (
       <BrowserRouter>
         <Switch>
+          <Navbar />
           <Route exact path='/starship/:id(\d+)' component={Starship} />
           <Route exact path='/planet/:id(\d+)' component={Planet} />
           <Route exact path='/personnage/:id(\d+)' component={Personnage} />

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Navbar, Nav, NavItem } from 'react-bootstrap'
+import { NavLink } from 'react-router-dom'
 
 export default class NavBar extends React.Component {
   render () {
@@ -7,25 +8,37 @@ export default class NavBar extends React.Component {
       <Navbar>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href='/'>Star War Universe</a>
+            <NavLink to='/'>
+              Star War Universe
+            </NavLink>
           </Navbar.Brand>
         </Navbar.Header>
 
         <Nav>
-          <NavItem href='/personnage'>
-            Personnage
+          <NavItem>
+            <NavLink to='/personnage'>
+              Personnage
+            </NavLink>
           </NavItem>
-          <NavItem href='/planet'>
-            Planet
+          <NavItem>
+            <NavLink to='/planet'>
+              Planet
+            </NavLink>
           </NavItem>
-          <NavItem href='/species'>
-            Species
+          <NavItem>
+            <NavLink to='/species'>
+              Species
+            </NavLink>
           </NavItem>
-          <NavItem href='/starship'>
-            Starship
+          <NavItem>
+            <NavLink to='/Starship'>
+              Starship
+            </NavLink>
           </NavItem>
-          <NavItem href='/vehicle'>
-            Vehicle
+          <NavItem>
+            <NavLink to='/vehicle'>
+              Vehicle
+            </NavLink>
           </NavItem>
         </Nav>
       </Navbar>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Navbar, Nav, NavItem } from 'react-bootstrap'
+import { LinkContainer } from 'react-router-bootstrap'
 import { NavLink } from 'react-router-dom'
 
 export default class NavBar extends React.Component {
@@ -15,31 +16,21 @@ export default class NavBar extends React.Component {
         </Navbar.Header>
 
         <Nav>
-          <NavItem>
-            <NavLink to='/personnage'>
-              Personnage
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink to='/planet'>
-              Planet
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink to='/species'>
-              Species
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink to='/Starship'>
-              Starship
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink to='/vehicle'>
-              Vehicle
-            </NavLink>
-          </NavItem>
+          <LinkContainer to='/personnage'>
+            <NavItem>Personnage</NavItem>
+          </LinkContainer>
+          <LinkContainer to='/planet'>
+            <NavItem>Planet</NavItem>
+          </LinkContainer>
+          <LinkContainer to='/species'>
+            <NavItem>Species</NavItem>
+          </LinkContainer>
+          <LinkContainer to='/starship'>
+            <NavItem>Starship</NavItem>
+          </LinkContainer>
+          <LinkContainer to='/vehicle'>
+            <NavItem>Vehicle</NavItem>
+          </LinkContainer>
         </Nav>
       </Navbar>
     )

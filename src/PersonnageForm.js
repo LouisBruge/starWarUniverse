@@ -1,5 +1,6 @@
 import React from 'react'
 import Personnage from './Personnage.js'
+import _urlToId from './_urlToId.js'
 
 export default class PersonnageForm extends React.Component {
   constructor (props) {
@@ -23,16 +24,10 @@ export default class PersonnageForm extends React.Component {
       })
   }
 
-  _urlToId (url) {
-    let reg = new RegExp(/(\d+)/)
-    let id = reg.exec(url)
-    return id[0]
-  }
-
   render () {
     if (this.state.results.length > 0) {
       for (let i = 0; i < this.state.results.length; i++) {
-        let id = this._urlToId(this.state.results[i].url)
+        let id = _urlToId(this.state.results[i].url)
         return (
           <div>
             <Personnage name={id} />

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button, Grid, Row, Col, FormGroup, ControlLabel } from 'react-bootstrap'
 
 export default class PersonnageForm extends React.Component {
   constructor (props) {
@@ -25,13 +26,21 @@ export default class PersonnageForm extends React.Component {
 
   render () {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Name :
-        </label>
-        <input type='text' ref={(input) => this.input = input} />
-        <input type='submit' value='Submit' />
-      </form>
+      <Grid fluid>
+        <Row className='PersonnageForm'>
+          <Col xs={12} >
+            <form onSubmit={this.handleSubmit}>
+              <FormGroup bsSize='sm'>
+                <ControlLabel>
+                  Name :
+                </ControlLabel>
+                <input type='text' ref={(input) => this.input = input} />
+                <Button type='submit'>Submit</Button>
+              </FormGroup>
+            </form>
+          </Col>
+        </Row>
+      </Grid>
     )
   }
 }

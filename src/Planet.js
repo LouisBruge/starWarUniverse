@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Loading from './Loading'
 
 const URL_PLANET = 'https://swapi.co/api/planets/'
 
@@ -34,9 +35,7 @@ export default class planet extends Component {
   render () {
     if (this.state.isLoading) {
       return (
-        <div>
-          <p> Wait, Please. It's loading...</p>
-        </div>
+        <Loading />
       )
     } else {
       return (

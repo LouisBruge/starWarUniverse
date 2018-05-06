@@ -1,4 +1,5 @@
 import React from 'react'
+import Loading from './Loading'
 
 const URL_SPECIES = 'https://swapi.co/api/species/'
 
@@ -31,9 +32,7 @@ export default class Species extends React.Component {
   render () {
     if (this.state.isLoading) {
       return (
-        <div>
-          <p> Loading... </p>
-        </div>
+        <Loading />
       )
     } else {
       return (

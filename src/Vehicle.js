@@ -1,4 +1,5 @@
 import React from 'react'
+import Loading from './Loading'
 
 const URL_VEHICLE = 'https://swapi.co/api/vehicles/'
 
@@ -31,9 +32,7 @@ export default class Vehicle extends React.Component {
   render () {
     if (this.state.isLoading) {
       return (
-        <div>
-          <p> Loading... </p>
-        </div>
+        <Loading />
       )
     } else {
       return (

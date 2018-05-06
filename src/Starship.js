@@ -1,4 +1,5 @@
 import React from 'react'
+import Loading from './Loading'
 const URL_STARSHIP = 'https://swapi.co/api/starships/'
 
 export default class Starship extends React.Component {
@@ -32,9 +33,7 @@ export default class Starship extends React.Component {
   render () {
     if (this.state.isLoading) {
       return (
-        <div>
-          <p> Loading... </p>
-        </div>
+        <Loading />
       )
     } else {
       console.log(this.state.starship.name)

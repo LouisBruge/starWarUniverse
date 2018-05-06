@@ -7,6 +7,7 @@ import Personnage from './Personnage.js'
 import PersonnageIndex from './PersonnageIndex.js'
 import Vehicle from './Vehicle.js'
 import Species from './Species.js'
+import CarouselIndex from './CarouselIndex.js'
 import {Route, BrowserRouter, Switch, NavLink} from 'react-router-dom'
 
 export default class NavBar extends React.Component {
@@ -53,6 +54,7 @@ export default class NavBar extends React.Component {
           </Navbar>
 
           <Switch>
+            <Route exact path='/' component={CarouselIndex} />
             <Route exact path='/starship/:id(\d+)' component={Starship} />
             <Route exact path='/planet/:id(\d+)' component={Planet} />
             <Route exact path='/personnage/:id(\d+)' component={Personnage} />

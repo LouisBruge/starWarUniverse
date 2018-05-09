@@ -59,6 +59,8 @@ export default class Personnage extends Component {
 
         this._fetchVehicle(this.state.personnage.vehicles)
         console.log(this.state.vehicles)
+        this._fetchStarship(this.state.personnage.starships)
+        console.log(this.state.starships)
       })
   }
 
@@ -74,6 +76,22 @@ export default class Personnage extends Component {
           vehicles.push(myJson.name)
           this.setState({
             vehicles: vehicles
+          })
+        })
+    })
+  }
+
+  _fetchStarship(request) {
+    request.forEach(starship => {
+      fetch(starship)
+        .then(response => {
+          return response.json()
+        })
+        .then(myJson => {
+          let starships = this.state.starships
+          starships.push(myJson.name)
+          this.setState({
+            starships: starships
           })
         })
     })

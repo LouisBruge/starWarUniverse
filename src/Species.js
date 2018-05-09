@@ -68,6 +68,7 @@ export default class Species extends React.Component {
         <Loading />
       )
     } else {
+      let peopleList = this.state.people.map((people, index) => <li key={index}> {people} </li>)
       return (
         <Grid>
           <Row>
@@ -92,6 +93,7 @@ export default class Species extends React.Component {
             </Col>
             <Col xs={12} className='text-justify'>
               <h3> Personnages </h3>
+              <ul> {peopleList} </ul>
             </Col>
           </Row>
         </Grid>

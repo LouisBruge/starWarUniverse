@@ -4,7 +4,7 @@ import { LinkContainer } from 'react-router-bootstrap'
 import Planet from './Planet/Planet.js'
 import Starship from './Starship/Starship.js'
 import Personnage from './Personnage/Personnage.js'
-import PersonnageIndex from './Personnage/PersonnageIndex.js'
+import CategoryIndex from './CategoryIndex.js'
 import Vehicle from './Vehicle/Vehicle.js'
 import Species from './Species/Species.js'
 import CarouselIndex from './CarouselIndex.js'
@@ -12,6 +12,7 @@ import {Route, BrowserRouter, Switch, NavLink} from 'react-router-dom'
 
 export default class NavBar extends React.Component {
   render () {
+    const ExtraProps = { category: 'people' }
     return (
       <BrowserRouter>
         <div>
@@ -58,7 +59,11 @@ export default class NavBar extends React.Component {
             <Route exact path='/starship/:id(\d+)' component={Starship} />
             <Route exact path='/planet/:id(\d+)' component={Planet} />
             <Route exact path='/personnage/:id(\d+)' component={Personnage} />
-            <Route exact path='/personnage' component={PersonnageIndex} />
+
+            <Route exact path='/personnage' render={(props) => (
+              <CategoryIndex {...props} data={ExtraProps} />
+
+            )} />
             <Route exact path='/vehicle/:id(\d+)' component={Vehicle} />
             <Route exact path='/species/:id(\d+)' component={Species} />
           </Switch>

@@ -1,5 +1,5 @@
 import React from 'react'
-import Loading from './Loading'
+import Loading from '../Loading'
 import { Grid, Row, Col } from 'react-bootstrap'
 
 const URL_SPECIES = 'https://swapi.co/api/species/'

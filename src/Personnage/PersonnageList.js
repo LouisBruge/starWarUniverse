@@ -1,5 +1,5 @@
 import React from 'react'
-import _urlToId from './_urlToId.js'
+import _urlToId from '../_urlToId.js'
 import Personnage from './Personnage.js'
 
 export default class PersonnageList extends React.Component {

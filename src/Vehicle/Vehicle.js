@@ -1,5 +1,5 @@
 import React from 'react'
-import Loading from './Loading'
+import Loading from '../Loading'
 import { Grid, Col, Row } from 'react-bootstrap'
 
 const URL_VEHICLE = 'https://swapi.co/api/vehicles/'

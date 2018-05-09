@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Grid, Row, Col } from 'react-bootstrap'
-import _urlToId from './_urlToId'
+import _urlToId from '../_urlToId'
 
 const URL_PEOPLE = 'https://swapi.co/api/people/'
 

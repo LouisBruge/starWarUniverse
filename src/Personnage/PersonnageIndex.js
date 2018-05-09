@@ -1,5 +1,5 @@
 import React from 'react'
-import Form from './Form.js'
+import Form from '../Form.js'
 import PersonnageList from './PersonnageList.js'
 
 export default class PersonnageIndex extends React.Component {

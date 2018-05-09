@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Loading from './Loading'
+import Loading from '../Loading'
 import { Grid, Col, Row } from 'react-bootstrap'
 
 const URL_PLANET = 'https://swapi.co/api/planets/'

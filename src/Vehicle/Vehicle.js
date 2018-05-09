@@ -7,10 +7,16 @@ const URL_VEHICLE = 'https://swapi.co/api/vehicles/'
 export default class Vehicle extends React.Component {
   constructor (props) {
     super(props)
+
+    let idVehicle = () => {
+      return this.props.name !== undefined ? this.props.name : this.props.match.params.id
+    }
+
     this.state = {
       isLoading: true,
       pilots: [],
-      vehicle: {}
+      vehicle: {},
+      id: idVehicle()
     }
   }
 
@@ -46,7 +52,7 @@ export default class Vehicle extends React.Component {
   }
 
   componentWillMount () {
-    this._fetchVehicle(this.props.match.params.id)
+    this._fetchVehicle(this.state.id)
   }
 
   render () {

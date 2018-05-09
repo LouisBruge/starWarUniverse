@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Grid, Row, Col } from 'react-bootstrap'
+import _urlToId from './_urlToId'
 
 const URL_PEOPLE = 'https://swapi.co/api/people/'
 
@@ -13,7 +14,8 @@ export default class Personnage extends Component {
     this.state = {
       isLoading: true,
       personnage: {},
-      id: idPerso()
+      id: idPerso(),
+      specie: null
     }
   }
 
@@ -30,7 +32,8 @@ export default class Personnage extends Component {
 
         // get the object myJson to the state personnage
         this.setState({
-          personnage: myJson
+          personnage: myJson,
+          specie: _urlToId(myJson.species[0])
         })
       })
   }
@@ -53,7 +56,7 @@ export default class Personnage extends Component {
             <Col xs={12}>
               <p> born in : {this.state.personnage.birth_year} </p>
               <p> Sex : {this.state.personnage.gender} </p>
-              <p> Specie : {this.state.personnage.species}</p>
+              <p> Specie : {this.state.specie} {this.state.personnage.species}</p>
               <p> Height : {this.state.personnage.height} cm </p>
               <p> Weight : {this.state.personnage.mass} kg </p>
             </Col>

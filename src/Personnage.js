@@ -1,23 +1,16 @@
-import React, {
-  Component
-} from 'react'
-import {
-  Grid,
-  Row,
-  Col
-} from 'react-bootstrap'
+import React, { Component } from 'react'
+import { Grid, Row, Col } from 'react-bootstrap'
 import _urlToId from './_urlToId'
 
 const URL_PEOPLE = 'https://swapi.co/api/people/'
 
 export default class Personnage extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
 
     let idPerso = () => {
       return this.props.name !== undefined ? this.props.name : this.props.match.params.id
     }
-    console.log(idPerso)
 
     this.state = {
       isLoading: true,
@@ -30,7 +23,7 @@ export default class Personnage extends Component {
     }
   }
 
-  _fetchPersonnage(id = '1') {
+  _fetchPersonnage (id = '1') {
     fetch(URL_PEOPLE + id)
       .then((response) => {
         return response.json()
@@ -43,7 +36,7 @@ export default class Personnage extends Component {
 
         let specie = `https://swapi.co/api/species/${_urlToId(myJson.species[0])}`
         fetch(specie)
-          .then(function(response) {
+          .then(function (response) {
             return response.json()
           })
           .then((myJson) => {
@@ -58,16 +51,12 @@ export default class Personnage extends Component {
         })
 
         this._fetchVehicle(this.state.personnage.vehicles)
-        console.log(this.state.vehicles)
         this._fetchStarship(this.state.personnage.starships)
-        console.log(this.state.starships)
         this._fetchHomeworld(this.state.personnage.homeworld)
-        console.log(this.state.home)
       })
   }
 
-
-  _fetchVehicle(request) {
+  _fetchVehicle (request) {
     request.forEach(vehicle => {
       fetch(vehicle)
         .then(response => {
@@ -83,7 +72,7 @@ export default class Personnage extends Component {
     })
   }
 
-  _fetchStarship(request) {
+  _fetchStarship (request) {
     request.forEach(starship => {
       fetch(starship)
         .then(response => {
@@ -99,7 +88,7 @@ export default class Personnage extends Component {
     })
   }
 
-  _fetchHomeworld(request) {
+  _fetchHomeworld (request) {
     fetch(request)
       .then(response => {
         return response.json()
@@ -111,55 +100,39 @@ export default class Personnage extends Component {
       })
   }
 
-  componentWillMount() {
+  componentWillMount () {
     this._fetchPersonnage(this.state.id)
   }
-  render() {
+  render () {
     if (this.state.isLoading) {
-      return ( <
-        div >
-        <
-        p > Loading... < /p> <
-        /div>
+      return (<div >
+        <p > Loading... </p> </div>
       )
     } else {
-      return ( <
-        Grid fluid >
-        <
-        Row className = 'Personnage' >
-        <
-        Col xs = {
-          12
-        } >
-        <
-        h2 className = 'text-center' > {
-          this.state.personnage.name
-        } < /h2> <
-        /Col> <
-        Col xs = {
-          12
-        } >
-        <
-        p > born in: {
-          this.state.personnage.birth_year
-        } < /p> <
-        p > Sex: {
-          this.state.personnage.gender
-        } < /p> <
-        p > Specie: {
-          this.state.specie
-        } < /p> <
-        p > Height: {
-          this.state.personnage.height
-        }
-        cm < /p> <
-        p > Weight: {
-          this.state.personnage.mass
-        }
-        kg < /p> <
-        /Col> <
-        /Row> <
-        /Grid>
+      let starshipsList = this.state.starships.map((starship, index) => <li key={index}> {starship} </li>)
+      let vehiclesList = this.state.vehicles.map((vehicle, index) => <li key={index}> {vehicle} </li>)
+      return (
+        <Grid fluid >
+          <Row className='Personnage' >
+            <Col xs={12} >
+              <h2 className='text-center' > {this.state.personnage.name} </h2>
+            </Col>
+            <Col xs={12} >
+              <p > born in: {this.state.personnage.birth_year} </p>
+              <p> at : {this.state.home} </p>
+              <p > Sex: {this.state.personnage.gender} </p>
+              <p > Specie: {this.state.specie} </p>
+              <p > Height: {this.state.personnage.height}cm </p>
+              <p > Weight: {this.state.personnage.mass} kg </p>
+            </Col>
+            <Col xs={12} >
+              <h3> Starships </h3>
+              <ul> {starshipsList} </ul>
+              <h3> Vehicles </h3>
+              <ul> {vehiclesList}</ul>
+            </Col>
+          </Row>
+        </Grid>
       )
     }
   }

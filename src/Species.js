@@ -10,7 +10,8 @@ export default class Species extends React.Component {
     this.state = {
       isLoading: true,
       homeworld: null,
-      species: {}
+      species: {},
+      people: []
     }
   }
 
@@ -20,6 +21,7 @@ export default class Species extends React.Component {
         return response.json()
       })
       .then((myJSON) => {
+        // Get HomeWorld
         fetch(myJSON.homeworld)
           .then((response) => {
             return response.json()
@@ -34,7 +36,26 @@ export default class Species extends React.Component {
           isLoading: false,
           species: myJSON
         })
+
+        // Get the people list
+        this._fetchpeopleList(this.state.species.people)
       })
+  }
+
+  _fetchpeopleList (request) {
+    request.forEach(people => {
+      fetch(people)
+        .then((response) => {
+          return response.json()
+        })
+        .then((myJson) => {
+          let people = this.state.people
+          people.push(myJson.name)
+          this.setState({
+            people: people
+          })
+        })
+    })
   }
 
   componentWillMount () {
@@ -68,6 +89,9 @@ export default class Species extends React.Component {
               <p> Eyes Colors : {this.state.species.eye_colors} </p>
               <p> Hairs Colors : {this.state.species.hair_colors} </p>
               <p> Skin Colors : {this.state.species.skin_colors} </p>
+            </Col>
+            <Col xs={12} className='text-justify'>
+              <h3> Personnages </h3>
             </Col>
           </Row>
         </Grid>

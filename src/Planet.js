@@ -10,6 +10,7 @@ export default class planet extends Component {
 
     this.state = {
       isLoading: true,
+      residents: [],
       planet: {}
     }
   }
@@ -27,6 +28,22 @@ export default class planet extends Component {
           planet: myJSON
         })
       })
+  }
+
+  _fetchResident (request) {
+    request.forEach(resident => {
+      fetch(resident)
+        .then(response => {
+          return response.json()
+        })
+        .then(myJson => {
+          let residents = this.state.residents
+          residents.push(myJson.name)
+          this.setState({
+            residents: residents
+          })
+        })
+    })
   }
 
   componentWillMount () {

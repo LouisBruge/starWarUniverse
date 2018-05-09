@@ -9,6 +9,7 @@ export default class Species extends React.Component {
     super(props)
     this.state = {
       isLoading: true,
+      homeworld: null,
       species: {}
     }
   }
@@ -19,6 +20,16 @@ export default class Species extends React.Component {
         return response.json()
       })
       .then((myJSON) => {
+        fetch(myJSON.homeworld)
+          .then((response) => {
+            return response.json()
+          })
+          .then((planet) => {
+            this.setState({
+              homeworld: planet.name
+            })
+          })
+
         this.setState({
           isLoading: false,
           species: myJSON
@@ -47,7 +58,7 @@ export default class Species extends React.Component {
               <p> Designation : {this.state.species.designation} </p>
               <p> Lifespan : { this.state.species.average_lifespan } years</p>
               <p> Language : {this.state.species.language } </p>
-              <p> Homeland : {this.state.species.homeworld} </p>
+              <p> Homeland : {this.state.homeworld} </p>
             </Col>
             <Col xs={12} className='text-justify'>
               <h3> Morphology </h3>

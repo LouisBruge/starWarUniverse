@@ -12,16 +12,16 @@ export default class List extends React.Component {
     this.state = {
       component: {
         people: Personnage,
-        planet: Planet,
+        planets: Planet,
         species: Species,
-        starship: Starship,
-        vehicle: Vehicle
+        starships: Starship,
+        vehicles: Vehicle
       }
     }
   }
   render () {
     if (this.props.result !== undefined) {
-      const Category = this.state.component['people']
+      const Category = this.state.component[this.props.category]
       const list = this.props.result.map(query => <Category name={_urlToId(query.url)} key={_urlToId(query.url)} />)
       return (
         <section id='PersonnageList'>

@@ -9,6 +9,7 @@ export default class Starship extends React.Component {
 
     this.state = {
       isLoading: true,
+      pilots: [],
       starship: {}
     }
   }
@@ -23,12 +24,28 @@ export default class Starship extends React.Component {
           starship: myJSON,
           isLoading: false
         })
-        console.log(this.state.startship)
+        this._fetchPilots(this.state.starship.pilots)
       })
   }
 
   componentWillMount () {
     this._fetchStarship(this.props.match.params.id)
+  }
+
+  _fetchPilots (request) {
+    request.forEach(pilot => {
+      fetch(pilot)
+        .then(response => {
+          return response.json()
+        })
+        .then(myJson => {
+          let pilots = this.state.pilots
+          pilots.push(myJson.name)
+          this.setState({
+            pilots: pilots
+          })
+        })
+    })
   }
 
   render () {

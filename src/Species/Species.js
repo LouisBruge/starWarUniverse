@@ -7,8 +7,14 @@ const URL_SPECIES = 'https://swapi.co/api/species/'
 export default class Species extends React.Component {
   constructor (props) {
     super(props)
+
+    let idSpecies = () => {
+      return this.props.name !== undefined ? this.props.name : this.props.match.params.id
+    }
+
     this.state = {
       isLoading: true,
+      id: idSpecies(),
       homeworld: null,
       species: {},
       people: []
@@ -59,7 +65,7 @@ export default class Species extends React.Component {
   }
 
   componentWillMount () {
-    this._fetchSpecies(this.props.match.params.id)
+    this._fetchSpecies(this.state.id)
   }
 
   render () {

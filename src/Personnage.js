@@ -30,10 +30,20 @@ export default class Personnage extends Component {
           isLoading: false
         })
 
+        let specie = `https://swapi.co/api/species/${_urlToId(myJson.species[0])}`
+        fetch(specie)
+          .then(function (response) {
+            return response.json()
+          })
+          .then((myJson) => {
+            this.setState({
+              specie: (myJson.name)
+            })
+          })
+
         // get the object myJson to the state personnage
         this.setState({
-          personnage: myJson,
-          specie: _urlToId(myJson.species[0])
+          personnage: myJson
         })
       })
   }
@@ -56,7 +66,7 @@ export default class Personnage extends Component {
             <Col xs={12}>
               <p> born in : {this.state.personnage.birth_year} </p>
               <p> Sex : {this.state.personnage.gender} </p>
-              <p> Specie : {this.state.specie} {this.state.personnage.species}</p>
+              <p> Specie : {this.state.specie} </p>
               <p> Height : {this.state.personnage.height} cm </p>
               <p> Weight : {this.state.personnage.mass} kg </p>
             </Col>

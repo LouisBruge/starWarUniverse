@@ -27,6 +27,7 @@ export default class planet extends Component {
         this.setState({
           planet: myJSON
         })
+        this._fetchResident(this.state.planet.residents)
       })
   }
 
@@ -56,6 +57,7 @@ export default class planet extends Component {
         <Loading />
       )
     } else {
+      let residentsList = this.state.residents.map((resident, index) => <li key={index}> {resident} </li>)
       return (
         <Grid>
           <Row>
@@ -84,6 +86,8 @@ export default class planet extends Component {
             </Col>
             <Col xs={12} className='text-justify'>
               <p> Population : {this.state.planet.population}</p>
+              <h4> Famous residents </h4>
+              <ul> {residentsList} </ul>
             </Col>
           </Row>
         </Grid>

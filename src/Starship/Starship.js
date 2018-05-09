@@ -7,8 +7,13 @@ export default class Starship extends React.Component {
   constructor (props) {
     super(props)
 
+    let idStarship = () => {
+      return this.props.name !== undefined ? this.props.name : this.props.match.params.id
+    }
+
     this.state = {
       isLoading: true,
+      id: idStarship(),
       pilots: [],
       starship: {}
     }
@@ -29,7 +34,7 @@ export default class Starship extends React.Component {
   }
 
   componentWillMount () {
-    this._fetchStarship(this.props.match.params.id)
+    this._fetchStarship(this.state.id)
   }
 
   _fetchPilots (request) {

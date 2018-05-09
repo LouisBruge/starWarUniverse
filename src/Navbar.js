@@ -12,7 +12,6 @@ import {Route, BrowserRouter, Switch, NavLink} from 'react-router-dom'
 
 export default class NavBar extends React.Component {
   render () {
-    const ExtraProps = { category: 'people' }
     return (
       <BrowserRouter>
         <div>
@@ -59,13 +58,23 @@ export default class NavBar extends React.Component {
             <Route exact path='/starship/:id(\d+)' component={Starship} />
             <Route exact path='/planet/:id(\d+)' component={Planet} />
             <Route exact path='/personnage/:id(\d+)' component={Personnage} />
-
-            <Route exact path='/personnage' render={(props) => (
-              <CategoryIndex {...props} data={ExtraProps} />
-
-            )} />
             <Route exact path='/vehicle/:id(\d+)' component={Vehicle} />
             <Route exact path='/species/:id(\d+)' component={Species} />
+            <Route exact path='/personnage' render={(props) => (
+              <CategoryIndex {...props} category='people' />
+            )} />
+            <Route exact path='/planet' render={(props) => (
+              <CategoryIndex {...props} category='planets' />
+            )} />
+            <Route exact path='/species' render={(props) => (
+              <CategoryIndex {...props} category='species' />
+            )} />
+            <Route exact path='/starship' render={(props) => (
+              <CategoryIndex {...props} category='starships' />
+            )} />
+            <Route exact path='/vehicle' render={(props) => (
+              <CategoryIndex {...props} category='vehicles' />
+            )} />
           </Switch>
         </div>
       </BrowserRouter>

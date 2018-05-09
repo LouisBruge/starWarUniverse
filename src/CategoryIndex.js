@@ -7,11 +7,8 @@ export default class CategoryIndex extends React.Component {
     super(props)
     this.state = {
       results: [],
-      component: {
-        people : List
       }
     }
-  }
 
   updateResult = (data) => {
     this.setState({
@@ -19,14 +16,13 @@ export default class CategoryIndex extends React.Component {
     })
   }
 
-  componentWillMount () {
-    console.log(this.props.data.category)
+  componentWillMount() {
+    console.log(this.props.category)
   }
 
   render () {
-    let List = this.state.component[this.props.data.category] 
     return this.state.results.length === 0 ? 
-      <Form parant={this.updateResult} category={this.props.data.category} /> 
+      <Form parant={this.updateResult} category={this.props.category} /> 
       : <List result={this.state.results}/>
   }
 }

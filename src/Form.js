@@ -1,18 +1,29 @@
 import React from 'react'
 import { Button, Grid, Row, Col, FormGroup, ControlLabel } from 'react-bootstrap'
+const URL = 'https://swapi.co/api/'
 
-export default class PersonnageForm extends React.Component {
+export default class Form extends React.Component {
   constructor (props) {
     super(props)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleChange = this.handleChange.bind(this)
     this.state = {
-      results: []
+      results: [],
+      value: ''
     }
+  }
+
+  handleChange (event) {
+    event.preventDefault()
+    this.setState({
+      value: event.target.value
+    })
   }
 
   handleSubmit (event) {
     event.preventDefault()
-    fetch('https://swapi.co/api/people/?search=' + this.input.value)
+    console.log(URL + this.props.category + '/?search=' + this.state.value)
+    fetch(URL + this.props.category + '/?search=' + this.state.value)
       .then(function (response) {
         return response.json()
       })
@@ -34,7 +45,7 @@ export default class PersonnageForm extends React.Component {
                 <ControlLabel>
                   Name :
                 </ControlLabel>
-                <input type='text' ref={(input) => this.input = input} />
+                <input type='text' value={this.state.value} onChange={this.handleChange} />
                 <Button type='submit'>Submit</Button>
               </FormGroup>
             </form>

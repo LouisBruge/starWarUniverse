@@ -1,5 +1,5 @@
 import React from 'react'
-import PersonnageForm from './PersonnageForm.js'
+import Form from './Form.js'
 import PersonnageList from './PersonnageList.js'
 
 export default class PersonnageIndex extends React.Component {
@@ -18,7 +18,7 @@ export default class PersonnageIndex extends React.Component {
 
   render () {
     return this.state.results.length === 0 ? 
-      <PersonnageForm parant={this.updateResult} /> 
+      <Form parant={this.updateResult} category='people' /> 
       : <PersonnageList perso={this.state.results}/>
   }
 }

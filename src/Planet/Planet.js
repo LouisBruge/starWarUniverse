@@ -5,13 +5,18 @@ import { Grid, Col, Row } from 'react-bootstrap'
 const URL_PLANET = 'https://swapi.co/api/planets/'
 
 export default class planet extends Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
+
+    let idPlanet = () => {
+      return this.props.name !== undefined ? this.props.name : this.props.match.params.id
+    }
 
     this.state = {
       isLoading: true,
       residents: [],
-      planet: {}
+      planet: {},
+      id: idPlanet()
     }
   }
 
@@ -48,7 +53,7 @@ export default class planet extends Component {
   }
 
   componentWillMount () {
-    this._fetchPlanet(this.props.match.params.id)
+    this._fetchPlanet(this.state.id)
   }
 
   render () {

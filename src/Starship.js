@@ -54,6 +54,7 @@ export default class Starship extends React.Component {
         <Loading />
       )
     } else {
+      let pilotsList = this.state.pilots.map((pilot, index) => <li key={index}> {pilot} </li>)
       return (
         <Grid>
           <Row className='starship-grid'>
@@ -87,6 +88,12 @@ export default class Starship extends React.Component {
               <p> Speed in the atmosphere : {this.state.starship.max_atmosphering_speed} miles/hour</p>
               <p> Hyperdrive : {this.state.starship.hyperdrive_rating}</p>
               <p> MGLT : {this.state.starship.MGLT} AU</p>
+            </Col>
+            <Col xs={12} >
+              <h3> Famous Pilots </h3>
+            </Col>
+            <Col xs={12}>
+              <ul>{pilotsList}</ul>
             </Col>
           </Row>
         </Grid>)

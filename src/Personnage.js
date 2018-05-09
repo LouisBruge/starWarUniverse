@@ -24,9 +24,9 @@ export default class Personnage extends Component {
       personnage: {},
       id: idPerso(),
       specie: null,
-      homeworld: null,
       vehicles: [],
-      starships: []
+      starships: [],
+      home: ''
     }
   }
 
@@ -61,6 +61,8 @@ export default class Personnage extends Component {
         console.log(this.state.vehicles)
         this._fetchStarship(this.state.personnage.starships)
         console.log(this.state.starships)
+        this._fetchHomeworld(this.state.personnage.homeworld)
+        console.log(this.state.home)
       })
   }
 
@@ -95,6 +97,18 @@ export default class Personnage extends Component {
           })
         })
     })
+  }
+
+  _fetchHomeworld(request) {
+    fetch(request)
+      .then(response => {
+        return response.json()
+      })
+      .then(planet => {
+        this.setState({
+          home: planet.name
+        })
+      })
   }
 
   componentWillMount() {

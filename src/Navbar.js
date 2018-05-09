@@ -1,6 +1,6 @@
 import React from 'react'
 import { Navbar, Nav, NavItem } from 'react-bootstrap'
-import { LinkContainer } from 'react-router-bootstrap'
+import { IndexLinkContainer } from 'react-router-bootstrap'
 import Planet from './Planet/Planet.js'
 import Starship from './Starship/Starship.js'
 import Personnage from './Personnage/Personnage.js'
@@ -25,31 +25,31 @@ export default class NavBar extends React.Component {
             </Navbar.Header>
 
             <Nav>
-              <LinkContainer to='/personnage'>
+              <IndexLinkContainer to='/personnage'>
                 <NavItem>
               Personnage
                 </NavItem>
-              </LinkContainer>
-              <LinkContainer to='/planet'>
+              </IndexLinkContainer>
+              <IndexLinkContainer to='/planet'>
                 <NavItem>
               Planet
                 </NavItem>
-              </LinkContainer>
-              <LinkContainer to='/species'>
+              </IndexLinkContainer>
+              <IndexLinkContainer to='/species'>
                 <NavItem>
               Species
                 </NavItem>
-              </LinkContainer>
-              <LinkContainer to='/starship'>
+              </IndexLinkContainer>
+              <IndexLinkContainer to='/starship'>
                 <NavItem>
               Starship
                 </NavItem>
-              </LinkContainer>
-              <LinkContainer to='/vehicle'>
+              </IndexLinkContainer>
+              <IndexLinkContainer to='/vehicle'>
                 <NavItem>
               Vehicle
                 </NavItem>
-              </LinkContainer>
+              </IndexLinkContainer>
             </Nav>
           </Navbar>
 

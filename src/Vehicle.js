@@ -9,7 +9,7 @@ export default class Vehicle extends React.Component {
     super(props)
     this.state = {
       isLoading: true,
-      pilots: null,
+      pilots: [],
       vehicle: {}
     }
   }
@@ -24,6 +24,8 @@ export default class Vehicle extends React.Component {
           vehicle: myJSon,
           isLoading: false
         })
+        this._fetchPilots(this.state.vehicle.pilots)
+        console.log(this.state.pilots)
       })
   }
 
@@ -53,6 +55,7 @@ export default class Vehicle extends React.Component {
         <Loading />
       )
     } else {
+      let pilotsList = this.state.pilots.map((pilot, index) => <li key={index}> {pilot} </li>)
       return (
         <Grid>
           <Row className='vehicle-grid'>
@@ -84,6 +87,9 @@ export default class Vehicle extends React.Component {
             </Col>
             <Col xs={12} className='text-justify'>
               <p> Speed in the atmosphere : {this.state.vehicle.max_atmosphering_speed} miles/hour</p>
+            </Col>
+            <Col xs={12}>
+              <ul>{pilotsList}</ul>
             </Col>
           </Row>
         </Grid>)

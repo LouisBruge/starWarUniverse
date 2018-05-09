@@ -15,7 +15,10 @@ export default class Personnage extends Component {
       isLoading: true,
       personnage: {},
       id: idPerso(),
-      specie: null
+      specie: null,
+      homeworld: null,
+      vehicles: [],
+      starships: []
     }
   }
 

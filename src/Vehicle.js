@@ -9,6 +9,7 @@ export default class Vehicle extends React.Component {
     super(props)
     this.state = {
       isLoading: true,
+      pilots: null,
       vehicle: {}
     }
   }
@@ -24,6 +25,22 @@ export default class Vehicle extends React.Component {
           isLoading: false
         })
       })
+  }
+
+  _fetchPilots (request) {
+    request.forEach(pilot => {
+      fetch(pilot)
+        .then(response => {
+          return response.json()
+        })
+        .then(myJson => {
+          let pilots = this.state.pilots
+          pilots.push(myJson.name)
+          this.setState({
+            pilots: pilots
+          })
+        })
+    })
   }
 
   componentWillMount () {

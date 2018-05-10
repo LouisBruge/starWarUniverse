@@ -61,19 +61,19 @@ export default class NavBar extends React.Component {
             <Route exact path='/vehicle/:id(\d+)' component={Vehicle} />
             <Route exact path='/species/:id(\d+)' component={Species} />
             <Route exact path='/personnage' render={(props) => (
-              <CategoryIndex {...props} category='people' />
+              <CategoryIndex {...props} category='people' key='1' />
             )} />
             <Route exact path='/planet' render={(props) => (
-              <CategoryIndex {...props} category='planets' />
+              <CategoryIndex {...props} category='planets' key='2' />
             )} />
             <Route exact path='/species' render={(props) => (
-              <CategoryIndex {...props} category='species' />
+              <CategoryIndex {...props} category='species' key='3' />
             )} />
             <Route exact path='/starship' render={(props) => (
-              <CategoryIndex {...props} category='starships' />
+              <CategoryIndex {...props} category='starships' key='4' />
             )} />
             <Route exact path='/vehicle' render={(props) => (
-              <CategoryIndex {...props} category='vehicles' />
+              <CategoryIndex {...props} category='vehicles' key='5' />
             )} />
           </Switch>
         </div>

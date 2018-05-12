@@ -3,7 +3,7 @@ import CarouselIndex from './CarouselIndex'
 import CategoriePanel from './CategoriePanel'
 import IndexJumbotron from './IndexJumbotron'
 
-export default class IndexHome extends React.Component {
+export default class HomeIndex extends React.Component {
   render () {
     return (
       <div>

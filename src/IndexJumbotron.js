@@ -1,7 +1,5 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
 import { Jumbotron, Grid, Row, Col } from 'react-bootstrap'
-import { LinkContainer } from 'react-router-bootstrap'
 
 export default class IndexJumbotron extends React.Component {
   render () {

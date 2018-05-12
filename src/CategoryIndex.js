@@ -23,6 +23,6 @@ export default class CategoryIndex extends React.Component {
   render () {
     return this.state.results.length === 0 ? 
       <Form parant={this.updateResult} category={this.props.category} /> 
-      : <List result={this.state.results} category={this.props.category}/>
+      :<div> <Form parant={this.updateResult} category={this.props.category} /> <List result={this.state.results} category={this.props.category}/> </div>
   }
 }

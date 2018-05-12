@@ -1,8 +1,8 @@
 import React from 'react'
-import { Button, Grid, Row, Col, FormGroup, ControlLabel } from 'react-bootstrap'
+import { Button, Grid, Row, Col, FormGroup, ControlLabel, FormControl, Form } from 'react-bootstrap'
 const URL = 'https://swapi.co/api/'
 
-export default class Form extends React.Component {
+export default class FormInput extends React.Component {
   constructor (props) {
     super(props)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -39,16 +39,16 @@ export default class Form extends React.Component {
     return (
       <Grid fluid>
         <Row className='PersonnageForm'>
-          <Col xs={12} >
-            <form onSubmit={this.handleSubmit}>
-              <FormGroup bsSize='sm'>
+          <Col xs={10} xsOffset={1} >
+            <Form onSubmit={this.handleSubmit} horizontal>
+              <FormGroup>
                 <ControlLabel>
-                  Name :
+                  Name
                 </ControlLabel>
-                <input type='text' value={this.state.value} onChange={this.handleChange} />
+                <FormControl type='text' value={this.state.value} onChange={this.handleChange} placeholder='write you query here!' />
                 <Button type='submit'>Submit</Button>
               </FormGroup>
-            </form>
+            </Form>
           </Col>
         </Row>
       </Grid>

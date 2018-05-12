@@ -26,7 +26,13 @@ export default class Personnage extends Component {
   _fetchPersonnage (id = '1') {
     fetch(URL_PEOPLE + id)
       .then((response) => {
-        return response.json()
+        if (response.status === 200) {
+          return response.json()
+        }
+        throw new Error('No result')
+      })
+      .catch(error => {
+        console.log(error)
       })
       .then((myJson) => {
         // set the state isLoading to false

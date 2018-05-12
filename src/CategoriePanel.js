@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Row, Media, Button } from 'react-bootstrap'
+import { Grid, Media, Button } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 
 export default class CategoriePanel extends React.Component {
@@ -12,7 +12,7 @@ export default class CategoriePanel extends React.Component {
   }
 
   render () {
-    let image = <img src={this.imagePath()} />
+    let image = <img src={this.imagePath()} alt={this.props.alt} />
     let imageLeft = this.props.left === true ? <Media.Left> {image} </Media.Left> : null
     let imageRight = this.props.right === true ? <Media.Right> {image} </Media.Right> : null
 
